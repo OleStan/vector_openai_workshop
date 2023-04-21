@@ -45,7 +45,10 @@ gem "bootsnap", require: false
 
 gem "figaro"
 gem "ruby-openai"
+gem "pdf-reader"
+gem 'tqdm'
 
+# gem 'boxcars'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
