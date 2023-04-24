@@ -95,7 +95,7 @@ class EmbeddingService
     @new_data
   end
 
-  def query_vector(query:, embed_mode: @embed_mode)
+  def query_vector(query, embed_mode: @embed_mode)
     # create query vector
     res = @client.embeddings(
       parameters: {
@@ -109,6 +109,7 @@ class EmbeddingService
 
     # search in vector db
     res = @index.query(xq, topK: 2, includeMetadata: true)
+    Rails.logger.info res
     res['matches'].map { |match| match['metadata']['text'] }
   end
 

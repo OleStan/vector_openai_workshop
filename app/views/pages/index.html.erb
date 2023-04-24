@@ -1,0 +1,13 @@
+<div id="content" class="border w-full flex flex-col" data-controller="chat">
+  <div data-chat-railsenv-value="<%= ENV.fetch('OPENAI_ACCESS_TOKEN') %>"></div>
+
+  <div id="dialog-window" class="border border-green w-full h-96 flex flex-col overflow-y-scroll" data-chat-target="chatWindow">
+    <!-- Chat messages will be added here -->
+  </div>
+  <div id="input-window" class="border border-red">
+    <%= form_with url: chat_pages_path, class: 'flex w-full' do |form| %>
+      <%= form.text_field :message, class: "w-full border-none", "data-chat-target": 'messageInput' %>
+      <%= form.submit 'Send', class: "hover:bg-slate-300 hover:cursor-pointer", data: { action: 'click->chat#sendMessage' } %>
+    <% end %>
+  </div>
+</div>
