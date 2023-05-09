@@ -2,13 +2,13 @@ class EmbeddingService
   def initialize
     @client = OpenAI::Client.new
     @new_data = []
-    @embed_mode = "text-embedding-ada-002"
+    @embed_model = "text-embedding-ada-002"
   end
 
-  def embed(index_name:, embed_mode: @embed_mode)
+  def embed(index_name:, embed_model: @embed_model)
     res = @client.embeddings(
       parameters: {
-        model: embed_mode,
+        model: embed_model,
         input: "The food was delicious and the waiter..."
       }
     )
@@ -95,7 +95,7 @@ class EmbeddingService
     @new_data
   end
 
-  def query_vector(query, embed_mode: @embed_mode)
+  def query_vector(query, embed_mode: @embed_model)
     # create query vector
     res = @client.embeddings(
       parameters: {

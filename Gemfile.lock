@@ -70,6 +70,7 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
+    backports (3.24.1)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -85,11 +86,19 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    daru (0.3)
+      packable (~> 1.3.13)
+    data_uri (0.1.0)
     date (3.3.3)
     debug (1.7.2)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.12.0)
+    ffi (1.15.5)
+    ffi-rzmq (2.0.7)
+      ffi-rzmq-core (>= 1.0.7)
+    ffi-rzmq-core (1.0.7)
+      ffi
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.1.0)
@@ -106,9 +115,20 @@ GEM
     io-console (0.6.0)
     irb (1.6.4)
       reline (>= 0.3.0)
+    iruby (0.7.4)
+      data_uri (~> 0.1)
+      ffi-rzmq
+      irb
+      mime-types (>= 3.3.1)
+      multi_json (~> 1.11)
+      native-package-installer
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jupyter_on_rails (0.13.0)
+      daru
+      iruby
+      railties
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -120,10 +140,15 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.7.0)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
+    native-package-installer (1.1.5)
     net-imap (0.3.4)
       date
       net-protocol
@@ -136,6 +161,8 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
+    packable (1.3.17)
+      backports
     pdf-reader (2.11.0)
       Ascii85 (~> 1.0)
       afm (~> 0.2.1)
@@ -184,6 +211,7 @@ GEM
     rexml (3.2.5)
     ruby-openai (3.7.0)
       httparty (>= 0.18.1)
+    ruby-progressbar (1.13.0)
     ruby-rc4 (0.1.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.6)
@@ -235,15 +263,19 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  ffi-rzmq
   figaro
   importmap-rails
+  iruby
   jbuilder
+  jupyter_on_rails
   pdf-reader
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
   ruby-openai
+  ruby-progressbar
   selenium-webdriver
   sprockets-rails
   stimulus-rails

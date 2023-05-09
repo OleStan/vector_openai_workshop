@@ -47,6 +47,11 @@ gem "figaro"
 gem "ruby-openai"
 gem "pdf-reader"
 gem 'tqdm'
+gem 'ruby-progressbar'
+gem 'iruby'
+gem 'jupyter_on_rails'
+gem 'ffi-rzmq'
+
 
 # gem 'boxcars'
 
